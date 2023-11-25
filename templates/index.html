@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iris Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Iris Prediction</h1>
+    <form method="POST" action="{{ url_for('predict') }}">
+        <label for="SepalLengthCm">SepalLengthCm:</label>
+        <input type="text" name="SepalLengthCm" id="SepalLengthCm" required>
+        <br>
+        <label for="SepalWidthCm">SepalWidthCm:</label>
+        <input type="text" name="SepalWidthCm" id="SepalWidthCm" required>
+        <br>
+        <label for="PetalLengthCm">PetalLengthCm:</label>
+        <input type="text" name="PetalLengthCm" id="PetalLengthCm" required>
+        <br>
+        <label for="PetalWidthCm">PetalWidthCm:</label>
+        <input type="text" name="PetalWidthCm" id="PetalWidthCm" required>
+        <br>
+        <button type="submit">Predict</button>
+    </form>
+    {% if prediction %}
+    <p>The predicted species is {{ prediction[0] }}</p>
+    {% endif %}
+</body>
+</html>
